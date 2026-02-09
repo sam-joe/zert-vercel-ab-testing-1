@@ -17,6 +17,7 @@ function hashToVariant<T extends string>(
   options: readonly { value: T }[]
 ): T {
   let h = 0;
+  // hash function to convert the id to a number
   for (let i = 0; i < id.length; i++) h = (h << 5) - h + id.charCodeAt(i);
   const index = Math.abs(h) % options.length;
   return options[index].value;
